@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Group By & Join</title>
 </head>
 <body>
@@ -12,20 +13,20 @@
 
     <ol>
         <li>
-            <div>Contare quanti iscritti ci sono stati ogni anno</div>
-            <div> Risultato: SELECT COUNT(id), enrolment_date FROM `students` GROUP BY enrolment_date</div>
+            <h3>Contare quanti iscritti ci sono stati ogni anno:</h3>
+            <div> Risultato: <br> SELECT COUNT(id), enrolment_date FROM `students` <br> GROUP BY enrolment_date</div>
         </li>
         <li>
-            <div>Contare gli insegnanti che hanno l'ufficio nello stesso edificio</div>
-            <div>Risultato: SELECT COUNT(id), office_address FROM `teachers` GROUP BY office_address</div>
+            <h3>Contare gli insegnanti che hanno l'ufficio nello stesso edificio:</h3>
+            <div>Risultato: <br> SELECT COUNT(id), office_address FROM `teachers` <br> GROUP BY office_address</div>
         </li>
         <li>
-            <div>Calcolare la media dei voti di ogni appello d'esame</div>
-            <div>Risultato: SELECT AVG(vote), exam_id FROM `exam_student` GROUP BY exam_id</div>
+            <h3>Calcolare la media dei voti di ogni appello d'esame:</h3>
+            <div>Risultato: <br> SELECT AVG(vote), exam_id FROM `exam_student` <br> GROUP BY exam_id</div>
         </li>
         <li>
-            <div>Contare quanti corsi di laurea ci sono per ogni dipartimento</div>
-            <div>Risultato: SELECT COUNT(name), department_id FROM `degrees` GROUP BY department_id</div>
+            <h3>Contare quanti corsi di laurea ci sono per ogni dipartimento:</h3>
+            <div>Risultato: <br> SELECT COUNT(name), department_id FROM `degrees` <br> GROUP BY department_id</div>
         </li>
     </ol>
 
@@ -33,32 +34,32 @@
 
     <ol>
         <li>
-            <div>Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia</div>
-            <div>Risultato: SELECT * FROM `courses` INNER JOIN degrees ON degrees.id = courses.degree_id WHERE degrees.name = "Corso di Laurea in economia"</div>
+            <h3>Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia:</h3>
+            <div>Risultato: <br> SELECT * FROM `courses` <br> INNER JOIN degrees ON degrees.id = courses.degree_id <br> WHERE degrees.name = "Corso di Laurea in economia"</div>
         </li>
         <li>
-            <div>Selezionare tutti i Corsi di Laurea del Dipartimento di Neuroscienze</div>
-            <div>Risultato: SELECT * FROM `degrees` INNER JOIN departments ON departments.id = degrees.department_id WHERE departments.name = "Dipartimento di Neuroscienze"</div>
+            <h3>Selezionare tutti i Corsi di Laurea del Dipartimento di Neuroscienze:</h3>
+            <div>Risultato: <br> SELECT * FROM `degrees` <br> INNER JOIN departments <br> ON departments.id = degrees.department_id <br> WHERE departments.name = "Dipartimento di Neuroscienze"</div>
         </li>
         <li>
-            <div>Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)</div>
-            <div>Risultato: SELECT * FROM `teachers` INNER JOIN course_teacher ON teachers.id = course_teacher.teacher_id WHERE teachers.name = "Fulvio"</div>
+            <h3>Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44):</h3>
+            <div>Risultato: <br> SELECT * FROM `teachers` <br> INNER JOIN course_teacher <br> ON teachers.id = course_teacher.teacher_id <br> WHERE teachers.name = "Fulvio"</div>
         </li>
         <li>
-            <div>Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome</div>
-            <div>Risultato:</div>
+            <h3>Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome:</h3>
+            <div>Risultato: <br> SELECT students.surname, students.name, degrees.name, departments.name FROM `degrees` <br> INNER JOIN students <br> ON degrees.id = students.degree_id <br> INNER JOIN departments <br> ON departments.id = degrees.department_id <br> ORDER BY `students`.`surname` ASC</div>
         </li>
         <li>
-            <div>Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti</div>
-            <div>Risultato:</div>
+            <h3>Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti:</h3>
+            <div>Risultato: <br></div>
         </li>
         <li>
-            <div>Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (70)</div>
-            <div>Risultato:</div>
+            <h3>Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (70):</h3>
+            <div>Risultato: <br></div>
         </li>
         <li>
-            <div>BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami</div>
-            <div>Risultato:</div>
+            <h3>BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami:</h3>
+            <div>Risultato: <br></div>
         </li>
     </ol>
     
